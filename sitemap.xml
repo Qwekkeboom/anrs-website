@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://anrs.nl/</loc>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://anrs.nl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://anrs.nl/en/" />
+  </url>
+  <url>
+    <loc>https://anrs.nl/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://anrs.nl/en/" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://anrs.nl/" />
+  </url>
+</urlset>

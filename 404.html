@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — ANRS</title>
+  <meta name="description" content="Pagina niet gevonden." />
+  <meta name="theme-color" content="#e63916" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body id="top">
+  <a href="index.html" class="skip-link">Naar inhoud</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="ANRS logo" class="brand-logo" width="781" height="501" />
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-inner" style="text-align:center;">
+          <h1 class="hero-name"><span class="accent">404</span></h1>
+          <p class="hero-tagline">
+            Hier is geen raketwetenschap — deze pagina bestaat gewoon niet.
+          </p>
+          <div class="hero-cta" style="justify-content:center;">
+            <a href="index.html" class="btn btn-primary">Terug naar huis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">ANRS — Ain't No Rocket Science</div>
+        <div class="footer-copy">
+          © <span id="year"></span> Ain't No Rocket Science. Alle rechten voorbehouden.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -50,6 +50,38 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ---------- Focus states ---------- */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.nav-list a:focus-visible,
+.social-list a:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+  text-decoration: none;
+  border-radius: 1px;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: top 0.15s;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
 /* ---------- Layout ---------- */
 .container {
   width: 100%;
@@ -62,6 +94,7 @@ a:hover {
 .section {
   padding: 6rem 0;
   position: relative;
+  scroll-margin-top: 80px;
 }
 
 .section + .section {
@@ -124,10 +157,9 @@ a:hover {
 }
 
 .brand-logo {
-  width: 38px;
-  height: 38px;
-  object-fit: cover;
-  border-radius: 50%;
+  height: 44px;
+  width: auto;
+  object-fit: contain;
 }
 
 .brand-text {
@@ -152,6 +184,7 @@ a:hover {
   letter-spacing: 1px;
   font-size: 0.85rem;
   color: var(--ink);
+  touch-action: manipulation;
 }
 
 .nav-list a:hover {
@@ -245,6 +278,7 @@ a:hover {
   background: var(--paper);
   color: var(--ink);
   transition: background 0.15s, color 0.15s, border-color 0.15s;
+  touch-action: manipulation;
 }
 
 .btn:hover {
@@ -330,7 +364,7 @@ a:hover {
 
 .crew-role {
   font-size: 0.8rem;
-  color: #777;
+  color: #5a5a5a;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -526,6 +560,20 @@ a:hover {
 }
 
 .footer-links a {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.footer-social {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.footer-social a {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.8rem;
