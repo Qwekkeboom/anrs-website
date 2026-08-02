@@ -4,15 +4,17 @@
    ========================================================= */
 
 :root {
-  --paper: #eceef0;
-  --paper-2: #f6f7f8;
-  --ink: #15171c;
+  --paper: #123a4d;
+  --paper-2: #eef2f4;
+  --ink: #0c2330;
   --red: #e63916;
   --red-dark: #b82a0f;
   --amber: #e8a200;
-  --slate: #5b6470;
-  --grid: #dde1e5;
-  --line: #d8dce2;
+  --slate: #9fb3bd;
+  --slate-dark: #5b6470;
+  --grid: rgba(255, 255, 255, 0.09);
+  --grid-major: rgba(255, 255, 255, 0.17);
+  --line: #cdd6db;
 
   --font-display: "Anton", "Arial Narrow", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -34,23 +36,24 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--ink);
+  color: #e6edf0;
   background: var(--paper);
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Engineering-paper blueprint grid */
+/* Engineering-paper blueprint grid (graph paper: minor + major lines) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
     linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.5;
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 128px 128px, 128px 128px;
   pointer-events: none;
   z-index: 0;
 }
@@ -61,7 +64,7 @@ img {
 }
 
 a {
-  color: var(--red-dark);
+  color: var(--red);
   text-decoration: none;
 }
 
@@ -93,7 +96,7 @@ button:focus-visible,
   left: 1rem;
   z-index: 200;
   background: var(--ink);
-  color: var(--paper);
+  color: #ffffff;
   padding: 0.75rem 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -158,7 +161,7 @@ button:focus-visible,
 .lead {
   font-size: 1.15rem;
   max-width: 56ch;
-  color: #3a3f47;
+  color: #c7d4db;
 }
 
 /* ---------- Header / nav ---------- */
@@ -166,9 +169,9 @@ button:focus-visible,
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(236, 238, 240, 0.92);
-  backdrop-filter: saturate(180%) blur(8px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(18, 58, 77, 0.85);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .site-header .container {
@@ -184,7 +187,7 @@ button:focus-visible,
   align-items: center;
   gap: 0.65rem;
   text-decoration: none;
-  color: var(--ink);
+  color: #ffffff;
 }
 
 .brand-logo {
@@ -207,7 +210,7 @@ button:focus-visible,
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.78rem;
-  color: var(--ink);
+  color: #cdd6db;
   touch-action: manipulation;
 }
 
@@ -290,7 +293,7 @@ button:focus-visible,
   font-weight: 500;
   max-width: 46ch;
   margin-bottom: 2.5rem;
-  color: #3a3f47;
+  color: #c7d4db;
 }
 
 .hero-cta {
@@ -306,17 +309,17 @@ button:focus-visible,
   letter-spacing: 1.5px;
   font-size: 0.82rem;
   padding: 0.85rem 1.5rem;
-  border: 2px solid var(--ink);
-  background: var(--paper-2);
-  color: var(--ink);
+  border: 2px solid #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
   touch-action: manipulation;
 }
 
 .btn:hover {
   text-decoration: none;
-  background: var(--ink);
-  color: var(--paper);
+  background: #ffffff;
+  color: var(--ink);
 }
 
 .btn-primary {
@@ -335,10 +338,10 @@ button:focus-visible,
 .telemetry {
   position: relative;
   z-index: 1;
-  background: var(--ink);
+  background: #07232f;
   color: var(--paper);
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   overflow: hidden;
 }
 
@@ -394,10 +397,11 @@ button:focus-visible,
 
 /* ---------- Cards ---------- */
 .card {
-  background: var(--paper-2);
-  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 2rem;
   position: relative;
+  color: #e6edf0;
 }
 
 .card-title {
@@ -406,6 +410,7 @@ button:focus-visible,
   letter-spacing: 1px;
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
+  color: #ffffff;
 }
 
 .card p + p {
@@ -431,8 +436,8 @@ button:focus-visible,
 .crew-card {
   text-align: center;
   padding: 1.5rem 1rem;
-  border: 1px solid var(--line);
-  background: var(--paper-2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .crew-avatar {
@@ -440,8 +445,8 @@ button:focus-visible,
   height: 64px;
   margin: 0 auto 0.85rem;
   border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--ink);
+  background: rgba(230, 57, 22, 0.12);
+  border: 2px solid var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,6 +461,7 @@ button:focus-visible,
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 1rem;
+  color: #ffffff;
 }
 
 .crew-role {
@@ -511,18 +517,18 @@ button:focus-visible,
   align-items: center;
   gap: 0.4rem;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: #e6edf0;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   touch-action: manipulation;
 }
 
 .social-list a:hover {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--paper);
+  border-color: var(--red);
+  background: var(--red);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -533,11 +539,12 @@ button:focus-visible,
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--ink);
+  background: #07232f;
   color: var(--paper);
   padding: 3rem 0;
   position: relative;
   z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .site-footer a {
@@ -603,11 +610,12 @@ button:focus-visible,
 
 /* ---------- Placeholder marker ---------- */
 .placeholder {
-  background: #fff3d6;
-  padding: 0.1rem 0.35rem;
+  background: rgba(232, 162, 0, 0.18);
+  border-bottom: 1px dashed var(--amber);
+  padding: 0.05rem 0.3rem;
   font-family: var(--font-mono);
   font-size: 0.85em;
-  color: #6b5b00;
+  color: var(--amber);
 }
 
 /* ---------- Responsive ---------- */
@@ -624,7 +632,7 @@ button:focus-visible,
     flex-direction: column;
     align-items: stretch;
     background: var(--paper);
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding: 0.5rem 1.5rem;
     gap: 0;
     display: none;
@@ -642,7 +650,7 @@ button:focus-visible,
     display: block;
     width: 100%;
     padding: 0.85rem 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-list li:last-child a {
