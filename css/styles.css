@@ -12,8 +12,10 @@
   --amber: #e8a200;
   --slate: #9fb3bd;
   --slate-dark: #5b6470;
-  --grid: rgba(255, 255, 255, 0.09);
-  --grid-major: rgba(255, 255, 255, 0.17);
+  --grid-minor: rgba(255, 255, 255, 0.04);
+  --grid-medium: rgba(255, 255, 255, 0.08);
+  --grid-major: rgba(255, 255, 255, 0.15);
+  --grid-cross: rgba(255, 255, 255, 0.32);
   --line: #cdd6db;
 
   --font-display: "Anton", "Arial Narrow", sans-serif;
@@ -43,17 +45,28 @@ body {
   position: relative;
 }
 
-/* Engineering-paper blueprint grid (graph paper: minor + major lines) */
+/* Engineering graph paper: 3 line weights + registration dots */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-medium) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-medium) 1px, transparent 1px),
     linear-gradient(to right, var(--grid-major) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px);
-  background-size: 32px 32px, 32px 32px, 128px 128px, 128px 128px;
+    linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px),
+    radial-gradient(circle at 0 0, var(--grid-cross) 1.6px, transparent 2.2px);
+  background-size:
+    16px 16px,
+    16px 16px,
+    64px 64px,
+    64px 64px,
+    256px 256px,
+    256px 256px,
+    256px 256px;
+  background-position: 0 0;
   pointer-events: none;
   z-index: 0;
 }
@@ -169,7 +182,7 @@ button:focus-visible,
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(18, 58, 77, 0.85);
+  background: rgba(18, 58, 77, 0.55);
   backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -365,11 +378,11 @@ button:focus-visible,
 }
 
 .telemetry-item .lbl {
-  color: var(--slate);
+  color: #b8c6cc;
 }
 
 .telemetry-item .val {
-  color: var(--paper);
+  color: #eef2f4;
 }
 
 .telemetry-item .val.live {
@@ -382,7 +395,7 @@ button:focus-visible,
 
 .telemetry-item::after {
   content: "·";
-  color: var(--slate);
+  color: #b8c6cc;
   margin-left: 2.5rem;
 }
 
