@@ -21,6 +21,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("anrs-theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,6 +73,12 @@
           <li><a href="#music">Music</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="../index.html" class="lang-switch" hreflang="nl" lang="nl">NL</a></li>
+          <li>
+            <button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+              <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+              <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -155,24 +172,14 @@
           <span class="section-kicker">Listen</span>
           <h2 class="section-title">Music</h2>
         </div>
-        <p class="lead">
-          Listen to our releases on your favourite platform.
-        </p>
 
         <div class="music-grid">
           <div class="card" style="text-align:center;">
-            <h3 class="card-title">Debut album incoming</h3>
+            <h3 class="card-title">First singles soon</h3>
             <p>
-              Keep an eye on social media for updates and first singles.
+              We're in the studio working on our debut album. Keep an eye on social media for the first singles.
             </p>
           </div>
-        </div>
-
-        <div class="stream-links">
-          <a class="btn" href="https://open.spotify.com/" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href="https://www.bandcamp.com/" target="_blank" rel="noopener">Bandcamp</a>
-          <a class="btn" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
-          <a class="btn" href="https://youtube.com/" target="_blank" rel="noopener">YouTube</a>
         </div>
       </div>
     </section>
