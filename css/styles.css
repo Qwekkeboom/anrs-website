@@ -4,14 +4,17 @@
    ========================================================= */
 
 :root {
-  --paper: #eceef0;
-  --paper-2: #f6f7f8;
+  --paper: #f4f6f8;
+  --paper-2: #ffffff;
   --ink: #15171c;
   --red: #e63916;
   --red-dark: #b82a0f;
   --amber: #e8a200;
   --slate: #5b6470;
-  --grid: #dde1e5;
+  --grid-minor: rgba(21, 23, 28, 0.04);
+  --grid-medium: rgba(21, 23, 28, 0.07);
+  --grid-major: rgba(21, 23, 28, 0.13);
+  --grid-cross: rgba(21, 23, 28, 0.26);
   --line: #d8dce2;
 
   --font-display: "Anton", "Arial Narrow", sans-serif;
@@ -41,16 +44,28 @@ body {
   position: relative;
 }
 
-/* Engineering-paper blueprint grid */
+/* Engineering graph paper: 3 line weights + registration dots */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(to right, var(--grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.5;
+    linear-gradient(to right, var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-minor) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-medium) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-medium) 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px),
+    radial-gradient(circle at 0 0, var(--grid-cross) 1.6px, transparent 2.2px);
+  background-size:
+    16px 16px,
+    16px 16px,
+    64px 64px,
+    64px 64px,
+    256px 256px,
+    256px 256px,
+    256px 256px;
+  background-position: 0 0;
   pointer-events: none;
   z-index: 0;
 }
@@ -166,8 +181,8 @@ button:focus-visible,
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(236, 238, 240, 0.92);
-  backdrop-filter: saturate(180%) blur(8px);
+  background: rgba(244, 246, 248, 0.7);
+  backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
 
@@ -307,7 +322,7 @@ button:focus-visible,
   font-size: 0.82rem;
   padding: 0.85rem 1.5rem;
   border: 2px solid var(--ink);
-  background: var(--paper-2);
+  background: transparent;
   color: var(--ink);
   transition: background 0.15s, color 0.15s, border-color 0.15s;
   touch-action: manipulation;
@@ -394,10 +409,11 @@ button:focus-visible,
 
 /* ---------- Cards ---------- */
 .card {
-  background: var(--paper-2);
+  background: rgba(255, 255, 255, 0.55);
   border: 1px solid var(--line);
   padding: 2rem;
   position: relative;
+  backdrop-filter: blur(2px);
 }
 
 .card-title {
@@ -432,7 +448,7 @@ button:focus-visible,
   text-align: center;
   padding: 1.5rem 1rem;
   border: 1px solid var(--line);
-  background: var(--paper-2);
+  background: rgba(255, 255, 255, 0.55);
 }
 
 .crew-avatar {
@@ -440,8 +456,8 @@ button:focus-visible,
   height: 64px;
   margin: 0 auto 0.85rem;
   border-radius: 50%;
-  background: var(--paper);
-  border: 2px solid var(--ink);
+  background: rgba(230, 57, 22, 0.08);
+  border: 2px solid var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -512,7 +528,7 @@ button:focus-visible,
   gap: 0.4rem;
   padding: 0.5rem 1rem;
   border: 1px solid var(--line);
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.55);
   color: var(--ink);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -520,9 +536,9 @@ button:focus-visible,
 }
 
 .social-list a:hover {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: var(--paper);
+  border-color: var(--red);
+  background: var(--red);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -599,15 +615,6 @@ button:focus-visible,
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   margin-top: 2rem;
   padding-top: 1.5rem;
-}
-
-/* ---------- Placeholder marker ---------- */
-.placeholder {
-  background: #fff3d6;
-  padding: 0.1rem 0.35rem;
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  color: #6b5b00;
 }
 
 /* ---------- Responsive ---------- */
